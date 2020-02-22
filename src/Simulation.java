@@ -5,7 +5,7 @@ public class Simulation {
 		
 		Spaceship s1 = new Spaceship(2, 3, 0, 3, 0.05, 0);
 		
-		System.out.println(s1.getXcoordinate());
+		System.out.println(s1.getInfo());
 		
 		
 

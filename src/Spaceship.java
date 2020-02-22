@@ -228,7 +228,7 @@ public class Spaceship {
 	
 	public String getInfo() {
 		
-		String info = "{x=" + this.x_coordinate + ", y=" + this.y_coordinate + ", vx=" + this.vx_velocity + ", vy=" + this.vy_velocity + ", ax=" + this.ax_acceleration + ", ay=" + this.ay_acceleration;
+		String info = "{x=" + this.x_coordinate + ", y=" + this.y_coordinate + ", vx=" + this.vx_velocity + ", vy=" + this.vy_velocity + ", ax=" + this.ax_acceleration + ", ay=" + this.ay_acceleration +"}";
 		
 		return info;
 		
