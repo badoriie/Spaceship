@@ -146,6 +146,92 @@ public class Spaceship {
 		
 	}
 	
+	public boolean isCollided(Spaceship spaceship, double radius) {
+		
+		double distance = Math.sqrt(Math.pow(this.x_coordinate - spaceship.x_coordinate, 2) + Math.pow(this.y_coordinate - spaceship.y_coordinate, 2));
+		
+		if ( distance <= radius ) {
+			
+			return true;
+			
+		}
+		
+		else {
+			
+			return false;
+			
+		}
+		
+	}
 	
+	public void collide(Spaceship spaceship) {
+		
+		this.vx_velocity = 0.0;
+		this.vy_velocity = 0.0;
+		
+		spaceship.vx_velocity = 0.0;
+		spaceship.vy_velocity = 0.0;
+		
+		this.ax_acceleration = -1 * this.ax_acceleration;
+		this.ay_acceleration = -1 * this.ay_acceleration;
+		
+		spaceship.ax_acceleration = -1 * spaceship.ax_acceleration;
+		spaceship.ay_acceleration = -1 * spaceship.ay_acceleration;
+		
+	}
+	
+	public boolean isReachedToXboundry(Space space) {
+		
+		if ( this.x_coordinate <= 0.0 && this.x_coordinate >= space.getXdimension() ) {
+			
+			return true;
+			
+		}
+		else {
+			
+			return false;
+			
+		}
+		
+		
+	}
+	
+	public boolean isReachedToYboundry(Space space) {
+		
+		if ( this.y_coordinate <= 0.0 && this.y_coordinate >= space.getYdimension() ) {
+			
+			return true;
+			
+		}
+		else {
+			
+			return false;
+			
+		}
+		
+		
+	}
+	
+	public void reachedToXboundry() {
+		
+		this.vx_velocity = -1 * vx_velocity;
+		
+		
+	}
+	
+	public void reachedToYboundry() {
+		
+		this.vy_velocity = -1 * vy_velocity;
+		
+		
+	}
+	
+	public String getInfo() {
+		
+		String info = "{x=" + this.x_coordinate + ", y=" + this.y_coordinate + ", vx=" + this.vx_velocity + ", vy=" + this.vy_velocity + ", ax=" + this.ax_acceleration + ", ay=" + this.ay_acceleration;
+		
+		return info;
+		
+	}
 	
 }
