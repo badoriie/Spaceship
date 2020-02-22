@@ -4,10 +4,10 @@ public class Simulation {
 
 	public static void main(String[] args) {
 		
-		int numberofspaceships = 100;
-		int iterationnumber = 5000;
-		double dt = 1;
-		double radius = 0.5;
+		int numberofspaceships = 50;
+		int iterationnumber = 1000;
+		double dt = 1; // Time step
+		double radius = 0.5; // criterian for collision
 		
 		Space space = new Space(500, 500);
 		
@@ -65,9 +65,6 @@ public class Simulation {
 			
 		}
 		
-		
-		
-
 	}
 
 }

@@ -57,7 +57,7 @@ public class Spaceship {
 	
 	public boolean isCollided(Spaceship spaceship, double radius) {
 		
-		double distance = Math.sqrt(Math.pow(this.x_coordinate - spaceship.x_coordinate, 2) + Math.pow(this.y_coordinate - spaceship.y_coordinate, 2));
+		double distance = Math.sqrt(Math.pow(this.x_coordinate - spaceship.x_coordinate, 2) + Math.pow(this.y_coordinate - spaceship.y_coordinate, 2)); // Euclidean distance
 		
 		if ( distance <= radius ) {
 			
@@ -91,7 +91,7 @@ public class Spaceship {
 	
 	public boolean isReachedToXboundry(Space space) {
 		
-		if ( this.x_coordinate <= 0.0 || this.x_coordinate >= space.getXdimension() ) {
+		if ( this.x_coordinate <= 0.0 ||  space.getXdimension() <= this.x_coordinate  ) {
 			
 			return true;
 			
@@ -107,7 +107,7 @@ public class Spaceship {
 	
 	public boolean isReachedToYboundry(Space space) {
 		
-		if ( this.y_coordinate <= 0.0 || this.y_coordinate >= space.getYdimension() ) {
+		if ( this.y_coordinate <= 0.0 || space.getYdimension() <= this.y_coordinate ) {
 			
 			return true;
 			
