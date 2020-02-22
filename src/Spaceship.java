@@ -42,108 +42,17 @@ public class Spaceship {
 		
 	}
 	
-	public double getXcoordinate() {
-		
-		return this.x_coordinate;
-		
-	}
-	
-	public void setXcoordinate(double x_coordinate) {
-		
-		this.x_coordinate = x_coordinate;
-		
-	}
-	
-
-	public double getYcoordinate() {
-		
-		return this.y_coordinate;
-		
-	}
-	
-	public void setYcoordinate(double y_coordinate) {
-		
-		this.y_coordinate = y_coordinate;
-		
-	}
-	
-	public double getVXvelocity() {
-		
-		return this.vx_velocity;
-		
-	}
-	
-	public void setVXvelocity(double vx_velocity) {
-		
-		this.vx_velocity = vx_velocity;
-		
-	}
-	
-	
-	public double getVYvelocity() {
-		
-		return this.vy_velocity;
-		
-	}
-	
-	public void setVYvelocity(double vy_velocity) {
-		
-		this.vx_velocity = vy_velocity; 
-		
-	}
-
-	public double getAXacceleration() {
-		
-		return this.ax_acceleration;
-		
-	}
-	
-	public void setAXacceleration(double ax_acceleration) {
-		
-		if( acceleration_lower_bound <= ax_acceleration && ax_acceleration <= acceleration_upper_bound) {
-			
-			this.ax_acceleration = ax_acceleration;
-
-			}
-			else {
-				
-				throw new IllegalArgumentException(ax_acceleration + " is not a valid ax_acceleration value!, It has to be between 0.0 and 0.1.");
-				
-			}
-		
-	}
-	
-	public double getAYacceleration() {
-		
-		return this.ay_acceleration;
-		
-	}
-	
-	
-	public void setAYacceleration(double ay_acceleration) {
-		
-		if( acceleration_lower_bound <= ay_acceleration && ay_acceleration <= acceleration_upper_bound) {
-			
-			this.ay_acceleration = ay_acceleration;
-
-		}
-		else {
-			
-			throw new IllegalArgumentException(ay_acceleration + " is not a valid ax_acceleration value!, It has to be between 0.0 and 0.1.");
-			
-		}
-		
-	}
 	
 	public void move(double dt) {
 		
-		this.x_coordinate = this.x_coordinate + this.vx_velocity * dt;
-		this.y_coordinate = this.y_coordinate + this.vy_velocity * dt;
 		
 		this.vx_velocity = this.vx_velocity + this.ax_acceleration * dt;
 		this.vy_velocity = this.vy_velocity + this.ay_acceleration * dt;
 		
+		this.x_coordinate = this.x_coordinate + this.vx_velocity * dt;
+		this.y_coordinate = this.y_coordinate + this.vy_velocity * dt;
 		
+
 	}
 	
 	public boolean isCollided(Spaceship spaceship, double radius) {
@@ -182,7 +91,7 @@ public class Spaceship {
 	
 	public boolean isReachedToXboundry(Space space) {
 		
-		if ( this.x_coordinate <= 0.0 && this.x_coordinate >= space.getXdimension() ) {
+		if ( this.x_coordinate <= 0.0 || this.x_coordinate >= space.getXdimension() ) {
 			
 			return true;
 			
@@ -198,7 +107,7 @@ public class Spaceship {
 	
 	public boolean isReachedToYboundry(Space space) {
 		
-		if ( this.y_coordinate <= 0.0 && this.y_coordinate >= space.getYdimension() ) {
+		if ( this.y_coordinate <= 0.0 || this.y_coordinate >= space.getYdimension() ) {
 			
 			return true;
 			
@@ -214,23 +123,21 @@ public class Spaceship {
 	
 	public void reachedToXboundry() {
 		
-		this.vx_velocity = -1 * vx_velocity;
+		this.vx_velocity = -1 * this.vx_velocity;
 		
 		
 	}
 	
 	public void reachedToYboundry() {
 		
-		this.vy_velocity = -1 * vy_velocity;
+		this.vy_velocity = -1 * this.vy_velocity;
 		
 		
 	}
 	
-	public String getInfo() {
-		
-		String info = "{x=" + this.x_coordinate + ", y=" + this.y_coordinate + ", vx=" + this.vx_velocity + ", vy=" + this.vy_velocity + ", ax=" + this.ax_acceleration + ", ay=" + this.ay_acceleration +"}";
-		
-		return info;
+	public void print() {
+			
+		System.out.format("{x=%.0f ,y=%.0f ,vx=%.0f ,vy=%.0f ,ax=%.2f, ay=%.2f}\n", this.x_coordinate, this.y_coordinate, this.vx_velocity, this.vy_velocity, this.ax_acceleration, this.ay_acceleration );
 		
 	}
 	
