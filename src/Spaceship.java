@@ -45,11 +45,12 @@ public class Spaceship {
 	
 	public void move(double dt) {
 		
-		this.x_coordinate = this.x_coordinate + this.vx_velocity * dt;
-		this.y_coordinate = this.y_coordinate + this.vy_velocity * dt;
 		
 		this.vx_velocity = this.vx_velocity + this.ax_acceleration * dt;
 		this.vy_velocity = this.vy_velocity + this.ay_acceleration * dt;
+		
+		this.x_coordinate = this.x_coordinate + this.vx_velocity * dt;
+		this.y_coordinate = this.y_coordinate + this.vy_velocity * dt;
 		
 
 	}
