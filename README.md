@@ -27,5 +27,5 @@
 - The spaceships have randome coordinates, 0.0 speed and random acceleration as initial conditions.
 - If two spaceships collide (i.e. their center coordinates are within a given radius), then their velocities are set to 0.0 and their accelerations are negated
 - if a space ship reaches the boundary, then its velocity is negated.
-##### Note: It's better we consider a solid boundary condition on the boundaries of the space to prevent them to exceed out of the space. (Here the problem it's not resolved!).
+##### Note: It's better we consider the solid boundary condition for the space boundaries to prevent them from exceeding out the range. (Here the problem still is not resolved!).
 - At the end, the Information of each spaceships will be printed.
